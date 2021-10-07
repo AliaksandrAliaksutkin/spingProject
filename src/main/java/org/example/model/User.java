@@ -1,19 +1,18 @@
 package org.example.model;
 import lombok.*;
-import org.springframework.stereotype.Component;
 import javax.persistence.*;
-@NoArgsConstructor
+@NoArgsConstructor               // конструктор без аргументов (одно из требований соответствия Entity);
 @AllArgsConstructor
 @Setter
 @Getter
-@Entity
+@Entity (name = "users")         // Объект персистентной сущности. Как правило представляет таблицу в реляционной БД;
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    @Id                         // Определяет простой первичный ключ, состоящий из одного поля;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE) //автоматическая генерация значения первичного ключа
+    private Integer id;
     private String firstName;
     private String lastName;
-    private int age;
+    private Integer age;
 
     public User(String firstName, String lastName, int age) {
         this.firstName = firstName;
