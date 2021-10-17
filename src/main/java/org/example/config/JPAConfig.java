@@ -1,4 +1,5 @@
 package org.example.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -10,40 +11,48 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
 
+@EnableTransactionManagement
 @Configuration
 @ComponentScan("org.example")
 @EnableJpaRepositories("org.example.repository")
-public class SpringConfig {
+/*сообщает Spring Data JPA, что нужно искать классы репозитория
+в указанном пакете для внедрения соответсвующего кода во время выполнения.*/
+public class JPAConfig {
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() { //
-        LocalContainerEntityManagerFactoryBean em
-                = new LocalContainerEntityManagerFactoryBean();
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {                              /*менеджер сущностей*/
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
         em.setPackagesToScan("org.example.model");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        em.setJpaProperties(hibernateProperties());
         em.setJpaVendorAdapter(vendorAdapter);
-        em.setJpaProperties(additionalProperties());
         return em;
+
     }
 
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/springdb");
-        dataSource.setUsername("springdb");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/dbspring");
+        dataSource.setUsername("dbspring");
         dataSource.setPassword("821252");
         return dataSource;
     }
+    /*  DriverManagerDataSource - простая реализация стандартного интерфейса JDBC DataSource,
+    настройка простого старого JDBC DriverManager через свойства bean-компонента и возврат
+    нового соединения из каждого вызова getConnection.
+    */
 
-    Properties additionalProperties() {
+    Properties hibernateProperties() {
         Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", "update");
+        properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         return properties;
     }
@@ -60,3 +69,4 @@ public class SpringConfig {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 }
+
