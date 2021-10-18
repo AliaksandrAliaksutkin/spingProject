@@ -18,10 +18,8 @@ import java.util.Properties;
 
 @EnableTransactionManagement
 @Configuration
-@ComponentScan("org.example")
+@ComponentScan("org.example")                                                                           /*сообщает Spring Data JPA, что нужно искать классы репозитория в указанном пакете для внедрения соответсвующего кода во время выполнения.*/
 @EnableJpaRepositories("org.example.repository")
-/*сообщает Spring Data JPA, что нужно искать классы репозитория
-в указанном пакете для внедрения соответсвующего кода во время выполнения.*/
 public class JPAConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {                              /*менеджер сущностей*/
@@ -38,17 +36,13 @@ public class JPAConfig {
 
     @Bean
     public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();                             /*  DriverManagerDataSource - простая реализация стандартного интерфейса JDBC DataSource, настройка простого старого JDBC DriverManager через свойства bean-компонента и возврат нового соединения из каждого вызова getConnection.*/
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl("jdbc:postgresql://localhost:5432/dbspring");
         dataSource.setUsername("dbspring");
         dataSource.setPassword("821252");
         return dataSource;
     }
-    /*  DriverManagerDataSource - простая реализация стандартного интерфейса JDBC DataSource,
-    настройка простого старого JDBC DriverManager через свойства bean-компонента и возврат
-    нового соединения из каждого вызова getConnection.
-    */
 
     Properties hibernateProperties() {
         Properties properties = new Properties();
@@ -69,4 +63,3 @@ public class JPAConfig {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 }
-
