@@ -11,7 +11,7 @@ public class User {
     @Id                                                     // Определяет простой первичный ключ, состоящий из одного поля;
     @GeneratedValue(strategy = GenerationType.SEQUENCE)     //автоматическая генерация значения первичного ключа
     @Column(name = "id_user")
-    private int id;
+    private int id; //здесь лучше Long
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
