@@ -2,8 +2,12 @@ package org.example.repository;
 
 import org.example.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface UserRepository extends JpaRepository<User,Integer> {
+    @Query("select b from User b where b.lastName = :lastName")
+    User findByLastName(@Param("lastName") String lastName);
 
     /*      JpaRepository – это интерфейс фреймворка Spring Data предоставляющий
         набор стандартных методов JPA для работы с БД.

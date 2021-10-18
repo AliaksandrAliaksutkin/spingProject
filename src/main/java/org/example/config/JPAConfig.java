@@ -31,7 +31,6 @@ public class JPAConfig {
         em.setJpaProperties(hibernateProperties());
         em.setJpaVendorAdapter(vendorAdapter);
         return em;
-
     }
 
     @Bean

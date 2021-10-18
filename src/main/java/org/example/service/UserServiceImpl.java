@@ -2,6 +2,7 @@ package org.example.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
+import org.example.exception.NoEntityException;
 import org.example.model.User;
 import org.example.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -41,13 +42,19 @@ public class UserServiceImpl implements UserService {                   /*  Serv
 
     @Override
     @Transactional(readOnly = true)
-    public User getById(Integer id) {
-        return userRepository.findAllById(id);
+    public User getById(Integer id) throws NoEntityException {
+        return userRepository.findById(id).orElseThrow(()->new NoEntityException("User with id: "+ id +" not found"));
     }
 
     @Override
-    public User editUser(User user5) {
-        return userRepository.save(user5);
+    public User getByLastName(String lastName) {
+        return userRepository.findByLastName(lastName);                         /*используем аннотацию @Query которая позволяет создать SQL запрос, но этот запрос содержит параметр :lastName, его иы проставляем в структуре метода findByLastName() используя аннотаци. @Param в параметре которой мы указываем имя параметра запроса lastName.
+                                                                                Spring Data на основе предоставленных данных в аннотациях сам предоставит реализацию этого метода, и это замечательно, так как теперь мы его можем использовать:*/
     }
+
+//    @Override
+//    public User editUser(User user) {
+//        return userRepository.saveAndFlush(user);
+//    }
 }
 

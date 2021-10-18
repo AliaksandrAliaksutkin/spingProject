@@ -13,7 +13,9 @@ public interface UserService {
 
     User getById(Integer id);
 
-    User editUser(User user1);
+    User getByLastName(String lastName);
+
+//    User editUser(User user);
 
     void deleteAll();
 
