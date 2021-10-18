@@ -8,7 +8,7 @@ import org.example.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
-
+//todo не вижу транзакций, кроме методов чтения
 @Log
 @Service
 @RequiredArgsConstructor
