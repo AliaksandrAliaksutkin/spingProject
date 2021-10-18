@@ -52,9 +52,10 @@ public class UserServiceImpl implements UserService {                   /*  Serv
                                                                                 Spring Data на основе предоставленных данных в аннотациях сам предоставит реализацию этого метода, и это замечательно, так как теперь мы его можем использовать:*/
     }
 
-//    @Override
-//    public User editUser(User user) {
-//        return userRepository.saveAndFlush(user);
-//    }
+    @Override
+    public User editUser(User user) {
+        User editUser = userRepository.saveAndFlush(user);
+        return editUser;
+    }
 }
 

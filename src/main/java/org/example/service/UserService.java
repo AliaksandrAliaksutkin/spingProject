@@ -15,9 +15,8 @@ public interface UserService {
 
     User getByLastName(String lastName);
 
-//    User editUser(User user);
-
     void deleteAll();
 
+    User editUser(User user);
 }
 
