@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface UserRepository extends JpaRepository<User,Integer> {
     @Query("select b from User b where b.lastName = :lastName")
-    User findByLastName(@Param("lastName") String lastName);
+    User findByLastName(@Param("lastName") String lastName);//todo попробуй написать без query
 
     /*      JpaRepository – это интерфейс фреймворка Spring Data предоставляющий
         набор стандартных методов JPA для работы с БД.
