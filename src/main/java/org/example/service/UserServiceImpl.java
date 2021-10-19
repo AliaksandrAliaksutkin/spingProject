@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Transactional                                                          //todo не вижу транзакций, кроме методов чтения
+@Transactional
 @Log
 @Service
 @RequiredArgsConstructor
@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {                   /*  Serv
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public void deleteById(Long id) {
         userRepository.deleteById(id);
         log.info("User with id: " + id + " successfully deleted");
     }
@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {                   /*  Serv
 
     @Override
     @Transactional(readOnly = true)
-    public User getById(Integer id) throws NoEntityException {
+    public User getById(Long id) throws NoEntityException {
         return userRepository.findById(id).orElseThrow(() -> new NoEntityException("User with id: " + id + " not found"));
     }
 
