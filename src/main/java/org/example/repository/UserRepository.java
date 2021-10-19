@@ -8,8 +8,6 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User,Long> {
     List<User> findUsersByLastNameContainingIgnoreCase (String lastName);
 
-
-
     /*      JpaRepository – это интерфейс фреймворка Spring Data предоставляющий
         набор стандартных методов JPA для работы с БД.
             На основе этого интерфейса Spring Data предоставит реализации с методами,
