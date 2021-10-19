@@ -26,7 +26,7 @@ public class Main {
         userServiceImpl.addUser(user5);
         userServiceImpl.addUser(user6);
 
-        User user = new User(1L,"Yakut", "Yakutov", 55);
+        User user = new User(1L, "Yakut", "Yakutov", 55);
         userServiceImpl.editUser(user);
 
         userServiceImpl.deleteById(4L);
@@ -34,7 +34,7 @@ public class Main {
         User searchedUser = userServiceImpl.getById(6L);
         System.out.println(searchedUser);
         System.out.println("-----------------------------------------------------");
-        List<User> userListGetLastName= userServiceImpl.getByLastName("Ivanov");
+        List<User> userListGetLastName = userServiceImpl.getByLastName("Ivanov");
         System.out.println(userListGetLastName);
         System.out.println("-----------------------------------------------------");
         List<User> userList = userServiceImpl.getAll();
