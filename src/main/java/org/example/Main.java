@@ -12,7 +12,7 @@ public class Main {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JPAConfig.class);   /*в качестве аргумента к передается класс, либо список классов с аннотацией @Configuration, либо с любой другой аннотацией JSR-330, в том числе и @Component*/
         User user1 = new User("Alex", "Utkin", 33);
         User user2 = new User("Ivan", "Ivanov", 35);
-        User user3 = new User("Petr", "Petrov", 37);
+        User user3 = new User("Petr", "Ivanov", 37);
         User user4 = new User("Vasilii", "Vasiliev", 34);
 
 
@@ -26,17 +26,18 @@ public class Main {
         userServiceImpl.editUser(user);
 
         userServiceImpl.deleteById(1);
-
+        System.out.println("-----------------------------------------------------");
         User searchedUser = userServiceImpl.getById(3);
         System.out.println(searchedUser);
-
-        User searchedUserByLastName = userServiceImpl.getByLastName("Ivanov");
-        System.out.println(searchedUserByLastName);
-
+        System.out.println("-----------------------------------------------------");
+        List<User> userListGetLastName= userServiceImpl.getByLastName("Ivanov");
+        System.out.println(userListGetLastName);
+        System.out.println("-----------------------------------------------------");
         List<User> userList = userServiceImpl.getAll();
         userList.forEach(System.out::println);
 
 //        userServiceImpl.deleteAll();
     }
 }
+
 

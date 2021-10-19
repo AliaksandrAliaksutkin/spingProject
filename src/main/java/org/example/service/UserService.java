@@ -13,10 +13,10 @@ public interface UserService {
 
     User getById(Integer id);
 
-    User getByLastName(String lastName);
-
     void deleteAll();
 
     User editUser(User user);
+
+    List<User> getByLastName(String lastName);
 }
 
