@@ -3,4 +3,13 @@
   <component name="JpaPluginProjectSettings">
     <option name="lastSelectedLanguage" value="Java" />
   </component>
+  <component name="ReverseEngineeringSettings">
+    <database-infos>
+      <database-info dbms-id="postgres">
+        <mapping-types>
+          <mapping-type sql-type="timestamp" java-class="java.time.LocalDateTime" />
+        </mapping-types>
+      </database-info>
+    </database-infos>
+  </component>
 </project>

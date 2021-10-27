@@ -2,21 +2,22 @@ package org.example.service;
 
 import java.util.List;
 
+import org.example.exception.NoEntityException;
 import org.example.model.User;
 
 public interface UserService {
-    User addUser(User user);
+    User save (User user);
 
-    void deleteById(Long id);
+    List<User> listAll();
+//
+//    User getById(Long id) throws NoEntityException;
+//
+//    void deleteById(Long id);
+//
+//    void deleteAll();
+//
+//    User editUser(User user);
 
-    List<User> getAll();
 
-    User getById(Long id);
-
-    void deleteAll();
-
-    User editUser(User user);
-
-    List<User> getByLastName(String lastName);
 }
 

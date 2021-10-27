@@ -25,30 +25,23 @@ public class User {
     @Column(name = "age")
     private int age;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_address_user")
     private Address address;
 
-//    public User(String firstName, String lastName, int age) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.age = age;
-//    }
-//
-//    public User(Long id, String firstName, String lastName, int age) {
-//        this.id = id;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.age = age;
-//    }
-//
-//    public User(Long id, String firstName, String lastName, int age, Address address) {
-//        this.id = id;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.age = age;
-//        this.address = address;
-//    }
+    public User(Long id, String firstName, String lastName, int age) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    public User(String firstName, String lastName, int age, Address address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.address = address;
+    }
 
     @Override
     public String toString() {
