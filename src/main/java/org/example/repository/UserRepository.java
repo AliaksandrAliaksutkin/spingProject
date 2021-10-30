@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
-
+}
 
     /*      JpaRepository – это интерфейс фреймворка Spring Data предоставляющий
         набор стандартных методов JPA для работы с БД.
@@ -21,4 +21,3 @@ public interface UserRepository extends JpaRepository<User,Long> {
         4 – Мы должны унаследовать свой интерфейс от JpaRepository,
             иначе Spring Data не предоставит реализацию для нашего репозитория (обязательно).
     */
-}

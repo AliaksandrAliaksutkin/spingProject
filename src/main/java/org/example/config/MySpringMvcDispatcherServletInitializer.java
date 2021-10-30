@@ -10,11 +10,11 @@ public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationC
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] {SprJPAConfig.class};
+        return new Class[]{SprJPAConfig.class};
     }
 
     @Override
-    protected String [] getServletMappings() {
+    protected String[] getServletMappings() {
         return new String[]{"/"};           /*все запоросы отправляем на диспетчерСервлет*/
     }
 }

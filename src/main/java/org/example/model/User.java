@@ -3,6 +3,7 @@ package org.example.model;
 import lombok.*;
 
 import javax.persistence.*;                                 //для связи с БД
+
 @Setter
 @Getter
 @NoArgsConstructor

@@ -87,9 +87,6 @@ public class SprJPAConfig implements WebMvcConfigurer {  /*интерфей WebM
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
-    /*__________________________________________________________________________________________________________________*/
-
-
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();

@@ -22,26 +22,26 @@ public class UsersController {
     }
 
     @GetMapping("/") // url - который приводит в данный метод контроллера
-    public String viewHomePage (Model model) {
+    public String viewHomePage(Model model) {
         List<User> listUsers = userService.getAllUsers();
         model.addAttribute("listUser", listUsers); // ключ/значение
         return "users";   // имя представления в который преведет данный метод
     }
 
-//    @GetMapping("/address")
-//    public String getAddress(Model model, @RequestParam Long id) throws NoEntityException {
-//        User address = userService.getById(id);
-//        model.addAttribute("address", address);
-//        return "address";
-//
-//    }
+    @GetMapping("/address")
+    public String getAddress(Model model, @RequestParam Long id) throws NoEntityException {
+        User address = userService.getById(id);
+        model.addAttribute("address", address);
+        return "address";
+
+    }
 
     @PostMapping("allusers")
-    public String editUser (@RequestParam (required = false) Long  id, @RequestParam String firstName,
+    public String editUser(@RequestParam(required = false) Long id, @RequestParam String firstName,
                            @RequestParam String lastName, @RequestParam Integer age,
-                           @RequestParam (name = "address.city") String city,
-                           @RequestParam (name = "address.street") String street,
-                           @RequestParam (name = "address.house") Integer house) {
+                           @RequestParam(name = "address.city") String city,
+                           @RequestParam(name = "address.street") String street,
+                           @RequestParam(name = "address.house") Integer house) {
         User user = new User(id, firstName, lastName, age, new Address(city, street, house));
         userService.save(user);
         return "redirect:/";
@@ -62,7 +62,7 @@ public class UsersController {
     @GetMapping("/delete")
     public String delete(@RequestParam Long id) {
         userService.deleteById(id);
-       return "redirect:/";
+        return "redirect:/";
     }
 }
 

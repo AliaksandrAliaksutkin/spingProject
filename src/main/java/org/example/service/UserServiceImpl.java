@@ -16,11 +16,13 @@ public class UserServiceImpl implements UserService {                   /*  Serv
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
     @Transactional
     @Override
     public User save(User user) {
         return userRepository.saveAndFlush(user);
     }
+
     @Transactional
     @Override
     public void deleteById(Long id) {

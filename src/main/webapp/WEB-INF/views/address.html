@@ -18,10 +18,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="userAddress, state :${address} ">
-        <td th:utext="${userAddress.address.city}" >city</td>
-        <td th:utext="${userAddress.address.street}" >street</td>
-        <td th:utext="${userAddress.address.house}" >house</td>
+    <tr th:each="address, state :${address} ">
+        <td th:utext="${address.address.city}">city</td>
+        <td th:utext="${address.address.street}">street</td>
+        <td th:utext="${address.address.house}">house</td>
     </tr>
     </tbody>
 </table>
