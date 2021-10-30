@@ -8,7 +8,7 @@
 <body>
 <div align="center">
     <h1>List users</h1>
-    <a href="/new">Create user</a> <!--При нажатии на Create user выполняется переход на URL-адрес /new-->
+
     </br>  </br>
     <table border="1" cellpadding="10">
         <thead>
@@ -17,7 +17,7 @@
             <th>First name</th>
             <th>Last name</th>
             <th>Age</th>
-            <th>Additional actions</th>
+            <th>Actions</th>
 
         </tr>
         </thead>
@@ -25,14 +25,16 @@
         <tr th:each="user :${listUser}">
             <td th:utext="${user.id}">Id</td>
             <td><a th:utext="${user.firstName}" th:href="@{/address(id=${user.id})}">first name<a/></a>
-            <td th:utext="${user.lastName}">last name</td>
+            <td><a th:utext="${user.lastName}" th:href="@{/address.html(id=${user.id})}">last name<a/></a></td>
             <td th:utext="${user.age}">age</td>
-            <td><a th:href="@{/edit(id=${user.id})}">Edit</a>
+            <td><a th:href="@{/update(id=${user.id})}">Edit</a>
                 <a th:href="@{/delete(id=${user.id})}">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
+    </br>  </br>
+    <a href="/new">Create user</a> <!--При нажатии на Create user выполняется переход на URL-адрес /new-->
 </div>
 </body>
 </html>

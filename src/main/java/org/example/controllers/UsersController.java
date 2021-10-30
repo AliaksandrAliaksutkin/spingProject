@@ -59,11 +59,11 @@ public class UsersController {
         return "new";
     }
 
-//    @GetMapping("/delete")
-//    public String delete(@RequestParam Long id) {
-//        userService.deleteById(id);
-//        return "redirect:/user";
-//    }
+    @GetMapping("/delete")
+    public String delete(@RequestParam Long id) {
+        userService.deleteById(id);
+       return "redirect:/";
+    }
 }
 
 /*      внутри контроллера может быть сколько угодно методов
