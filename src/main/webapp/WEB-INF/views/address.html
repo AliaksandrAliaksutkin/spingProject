@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <h1>User address</h1>
 </head>
 <body>
-<br>
-<a href="/userList">User list</a>
-<br><br>
-<table border="1">
-    <thead>
-    <tr>
-        <th>city</th>
-        <th>street</th>
-        <th>house</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="address, state :${address} ">
-        <td th:utext="${address.address.city}">city</td>
-        <td th:utext="${address.address.street}">street</td>
-        <td th:utext="${address.address.house}">house</td>
-    </tr>
-    </tbody>
-</table>
+<div align="center">
+    <h1>User address</h1>
+    </br></br>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>city</th>
+            <th>street</th>
+            <th>house</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="address, state :${address} ">
+            <td th:utext="${address.address.city}">city</td>
+            <td th:utext="${address.address.street}">street</td>
+            <td th:utext="${address.address.house}">house</td>
+        </tr>
+        </tbody>
+    </table>
+    </br> </br>
+    <a href="/">User list</a>
+</div>
 </body>
 </html>

@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
-
 </head>
 <body>
 <div align="center">
     <h1>List users</h1>
-
     </br>  </br>
     <table border="1" cellpadding="10">
         <thead>
@@ -18,14 +16,13 @@
             <th>Last name</th>
             <th>Age</th>
             <th>Actions</th>
-
         </tr>
         </thead>
         <tbody>
         <tr th:each="user :${listUser}">
             <td th:utext="${user.id}">Id</td>
             <td><a th:utext="${user.firstName}" th:href="@{/address(id=${user.id})}">first name<a/></a>
-            <td><a th:utext="${user.lastName}" th:href="@{/address.html(id=${user.id})}">last name<a/></a></td>
+            <td th:utext="${user.lastName}">last name</td>
             <td th:utext="${user.age}">age</td>
             <td><a th:href="@{/update(id=${user.id})}">Edit</a>
                 <a th:href="@{/delete(id=${user.id})}">Delete</a>
