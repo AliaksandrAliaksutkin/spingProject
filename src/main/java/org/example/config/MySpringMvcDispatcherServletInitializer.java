@@ -1,26 +1,23 @@
 package org.example.config;
 
-import org.jetbrains.annotations.NotNull;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return null;
+        return new Class[0];
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] {SpringConfig.class};
+        return new Class[] {SprJPAConfig.class};
     }
 
     @Override
-    protected String @NotNull [] getServletMappings() {
-        return new String[]{"/"};
+    protected String [] getServletMappings() {
+        return new String[]{"/"};           /*все запоросы отправляем на диспетчерСервлет*/
     }
 }
-
-
 
 
 /*  public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer -

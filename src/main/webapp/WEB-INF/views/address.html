@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <h1>User address</h1>
+</head>
+<body>
+<br>
+<a href="/userList">User list</a>
+<br><br>
+<table border="1">
+    <thead>
+    <tr>
+        <th>city</th>
+        <th>street</th>
+        <th>house</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="userAddress, state :${address} ">
+        <td th:utext="${userAddress.address.city}" >city</td>
+        <td th:utext="${userAddress.address.street}" >street</td>
+        <td th:utext="${userAddress.address.house}" >house</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

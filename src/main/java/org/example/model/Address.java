@@ -21,11 +21,11 @@ public class Address {
     @Column(name = "street")
     private String street;
     @Column(name = "house")
-    private int house;
+    private Integer house;
     @OneToOne(mappedBy = "address", orphanRemoval = true)
     private User user;
 
-    public Address(String city, String street, int house) {
+    public Address(String city, String street, Integer house) {
         this.city = city;
         this.street = street;
         this.house = house;

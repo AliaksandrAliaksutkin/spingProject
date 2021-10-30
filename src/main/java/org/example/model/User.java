@@ -3,12 +3,11 @@ package org.example.model;
 import lombok.*;
 
 import javax.persistence.*;                                 //для связи с БД
-
+@Setter
+@Getter
 @NoArgsConstructor
 // конструктор без аргументов (одно из требований соответствия Entity);
 @AllArgsConstructor
-@Setter
-@Getter
 @Table(name = "users")
 @Entity
 // Объект персистентной сущности. Как правило представляет таблицу в реляционной БД;
@@ -23,24 +22,30 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "age")
-    private int age;
+    private Integer age;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_address_user")
     private Address address;
 
-    public User(Long id, String firstName, String lastName, int age) {
-        this.id = id;
+    public User(String firstName, String lastName, Integer age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
     }
 
-    public User(String firstName, String lastName, int age, Address address) {
+    public User(String firstName, String lastName, Integer age, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.address = address;
+    }
+
+    public User(Long id, String firstName, String lastName, Integer age) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
     }
 
     @Override
