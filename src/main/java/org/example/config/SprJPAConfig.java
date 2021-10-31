@@ -1,5 +1,6 @@
 package org.example.config;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +24,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 import javax.sql.DataSource;
 import java.util.Properties;
-
+@AllArgsConstructor
 @Configuration
 @ComponentScan("org.example")
 @EnableJpaRepositories("org.example.repository")
@@ -31,10 +32,6 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class SprJPAConfig implements WebMvcConfigurer {  /*интерфей WebMvcConfigurer используется тогда, когда мы под себя хотим настроить работу Spring MVC, в данном случаемы используем шаблонизатор Thymeleaf вместо стандартного */
     private final ApplicationContext applicationContext;
-
-    public SprJPAConfig(ApplicationContext applicationContext) { /*здесь происходит внедрение ApplicationContext посредством конструктора(можно сеттер, или анотация ломбок) */
-        this.applicationContext = applicationContext;
-    }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {

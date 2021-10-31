@@ -30,6 +30,5 @@ public class Address {
         this.street = street;
         this.house = house;
     }
-
 }
 

@@ -1,5 +1,6 @@
 package org.example.controllers;
 
+import lombok.AllArgsConstructor;
 import org.example.exception.NoEntityException;
 import org.example.model.Address;
 import org.example.model.User;
@@ -12,14 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-
+@AllArgsConstructor
 @Controller
 public class UsersController {
     private final UserService userService;
-
-    public UsersController(UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping("/") // url - который приводит в данный метод контроллера
     public String viewHomePage(Model model) {
@@ -33,7 +30,6 @@ public class UsersController {
         User address = userService.getById(id);
         model.addAttribute("address", address);
         return "address";
-
     }
 
     @PostMapping("allusers")
@@ -67,5 +63,5 @@ public class UsersController {
 }
 
 /*      внутри контроллера может быть сколько угодно методов
-        обычно (но не всегда), дин метод соответствует одному URL-адресу
+        обычно (но не всегда), один метод соответствует одному URL-адресу
         */
