@@ -107,4 +107,5 @@ public class SprJPAConfig implements WebMvcConfigurer {  /*интерфей WebM
         resolver.setTemplateEngine(templateEngine());
         registry.viewResolver(resolver);
     }
+    /*________________________________________________________________________________________*/
 }
