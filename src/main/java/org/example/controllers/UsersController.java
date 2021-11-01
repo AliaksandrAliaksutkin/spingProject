@@ -18,7 +18,7 @@ import java.util.List;
 public class UsersController {
     private final UserService userService;
 
-    @GetMapping("/") // url - который приводит в данный метод контроллера
+    @GetMapping("/") // /homepage; url - который приводит в данный метод контроллера
     public String viewHomePage(Model model) {
         List<User> listUsers = userService.getAllUsers();
         model.addAttribute("listUser", listUsers); // ключ/значение
@@ -40,7 +40,7 @@ public class UsersController {
                            @RequestParam(name = "address.house") Integer house) {
         User user = new User(id, firstName, lastName, age, new Address(city, street, house));
         userService.save(user);
-        return "redirect:/";
+        return "redirect:/"; // /homepage
     }
 
     @GetMapping(value = "new")
@@ -58,7 +58,7 @@ public class UsersController {
     @GetMapping("/delete")
     public String delete(@RequestParam Long id) {
         userService.deleteById(id);
-        return "redirect:/";
+        return "redirect:/"; // /homepage
     }
 }
 
