@@ -1,12 +1,10 @@
 package org.example.controllers;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.example.exception.NoEntityException;
 import org.example.model.Address;
 import org.example.model.User;
 import org.example.service.UserService;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
