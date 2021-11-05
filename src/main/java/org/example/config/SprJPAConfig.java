@@ -1,7 +1,6 @@
 package org.example.config;
 
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -24,7 +23,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 import javax.sql.DataSource;
 import java.util.Properties;
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Configuration
 @ComponentScan("org.example")
 @EnableJpaRepositories("org.example.repository")
@@ -49,8 +48,8 @@ public class SprJPAConfig implements WebMvcConfigurer {  /*интерфей WebM
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();                             /*  DriverManagerDataSource - простая реализация стандартного интерфейса JDBC DataSource, настройка простого старого JDBC DriverManager через свойства bean-компонента и возврат нового соединения из каждого вызова getConnection.*/
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
-        dataSource.setUsername("postgres");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/dbspring");
+        dataSource.setUsername("dbspring");
         dataSource.setPassword("821252");
         return dataSource;
     }

@@ -1,10 +1,12 @@
 package org.example.controllers;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.example.exception.NoEntityException;
 import org.example.model.Address;
 import org.example.model.User;
 import org.example.service.UserService;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Controller
 public class UsersController {
     private final UserService userService;
 
-    @GetMapping("/") // /homepage; url - который приводит в данный метод контроллера
+    @GetMapping("/homepage") // /homepage; url - который приводит в данный метод контроллера
     public String viewHomePage(Model model) {
         List<User> listUsers = userService.getAllUsers();
         model.addAttribute("listUser", listUsers); // ключ/значение
@@ -40,7 +42,7 @@ public class UsersController {
                            @RequestParam(name = "address.house") Integer house) {
         User user = new User(id, firstName, lastName, age, new Address(city, street, house));
         userService.save(user);
-        return "redirect:/"; // /homepage
+        return "redirect:/homepage"; // /homepage
     }
 
     @GetMapping(value = "new")
@@ -58,7 +60,7 @@ public class UsersController {
     @GetMapping("/delete")
     public String delete(@RequestParam Long id) {
         userService.deleteById(id);
-        return "redirect:/"; // /homepage
+        return "redirect:/homepage"; // /homepage
     }
 }
 

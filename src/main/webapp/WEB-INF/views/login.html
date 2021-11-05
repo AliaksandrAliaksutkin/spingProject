@@ -1,22 +1,41 @@
-<html lang="en">
+<html lang="en,rus">
 <head>
-  <meta charset="utf-8">
-  <title>Login</title>
+    <meta charset="utf-8">
+    <title>Login</title>
 </head>
 <body>
-<div class="container">
-  <form class="form-signing" method="post" action="/login">
-    <h2 class="form-signing-heading">Login</h2>
-    <p>
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" class="form-control" placeholder="Firstname" required>
-    </p>
-    <p>
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-    </p>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  </form>
+<div class="container" align="center">
+<!--    <form class="form-signing" method="post" action="/login">-->
+
+         <h3 class="form-signing-heading">You are trying to access</h3>
+        <h3 class="form-signing-heading">to a super-puper secret user base.</h3>
+        <h3 class="form-signing-heading">First you need to authenticate!</h3>
+        <form name='f' action="login" method='POST'>
+            <table>
+                <tr>
+                    <td>User:</td>
+                    <td><input type='text' name='username' value=''></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type='password' name='password' /></td>
+                </tr>
+                <tr>
+                    <td><input name="submit" type="submit" value="submit" /></td>
+                </tr>
+            </table>
+        </form>
+<!--    </form>-->
 </div>
 </body>
 </html>
+
+<!--<p>-->
+<!--    <label for="username">Username</label>-->
+<!--    <input type="text" id="username" name="username" class="form-control" placeholder="Firstname" required>-->
+<!--</p>-->
+<!--<p>-->
+<!--    <label for="password">Password</label>-->
+<!--    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>-->
+<!--</p>-->
+<!--<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>-->
